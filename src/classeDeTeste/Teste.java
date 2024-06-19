@@ -63,18 +63,18 @@ public class Teste {
 		        System.out.println("Funcionário com maior idade: " + maisVelho.getNome() + ", Idade: " + 
 		                (LocalDate.now().getYear() - maisVelho.getDataNascimento().getYear()));
 
-		        // 3.10 – Imprimir a lista de funcionários por ordem alfabética.
+		        //  Imprimir a lista de funcionários por ordem alfabética.
 		        List<Funcionario> funcionariosOrdenados = new ArrayList<>(funcionarios);
 		        funcionariosOrdenados.sort(Comparator.comparing(Funcionario::getNome));
 		        funcionariosOrdenados.forEach(f -> System.out.println(f.getNome()));
 
-		        // 3.11 – Imprimir o total dos salários dos funcionários.
+		        //  Imprimir o total dos salários dos funcionários.
 		        BigDecimal totalSalarios = funcionarios.stream()
 		                .map(Funcionario::getSalario)
 		                .reduce(BigDecimal.ZERO, BigDecimal::add);
 		        System.out.println("Total dos salários: " + String.format("%,.2f", totalSalarios));
 
-		        // 3.12 – Imprimir quantos salários mínimos ganha cada funcionário.
+		        //  Imprimir quantos salários mínimos ganha cada funcionário.
 		        BigDecimal salarioMinimo = new BigDecimal("1212.00");
 		        funcionarios.forEach(f -> {
 		            BigDecimal salariosMinimos = f.getSalario().divide(salarioMinimo, 2, BigDecimal.ROUND_HALF_UP);
